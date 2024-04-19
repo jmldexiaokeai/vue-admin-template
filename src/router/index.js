@@ -56,9 +56,29 @@ export const constantRoutes = [
   },
 
   {
+    path: '/sys',
+    component: Layout,
+    redirect: '/sys',
+    name: 'sysManage',
+    meta: { title: '系统管理', icon: 'sys' },
+    children: [
+      {
+        path: 'user',
+        name: 'user',
+        component: () => import('@/views/sys/user'),
+        meta: { title: '用户管理', icon: 'userIcon' }
+      },
+      {
+        path: 'role',
+        name: 'role',
+        component: () => import('@/views/sys/role'),
+        meta: { title: '角色管理', icon: 'roleIcon' }
+      }
+    ]
+  },
+  {
     path: '/example',
     component: Layout,
-    redirect: '/example/table',
     name: 'Example',
     meta: { title: 'Example', icon: 'el-icon-s-help' },
     children: [
